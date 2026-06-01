@@ -1,19 +1,30 @@
 <?php
 
-// Permite acesso do frontend
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Content-Type: application/json");
 
-// Pega o JSON enviado pelo React
+// Responde o preflight OPTIONS
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    exit(0);
+}
+
 $dados = json_decode(file_get_contents("php://input"), true);
 
-// Variável enviada
-$nome = $dados["nome"];
+if(isset($dados["nome"])){
 
-// Retorno da API
-echo json_encode([
-    "mensagem" => "Nome recebido com sucesso",
-    "nome" => $nome
-]);
+    $nome = $dados["nome"];
 
-?>
+    echo json_encode([
+        "mensagem" => "Nome recebido com sucesso",
+        "nome" => $nome
+    ]);
+
+}else{
+
+    echo json_encode([
+        "erro" => "Nenhum nome enviado"
+    ]);
+
+}
