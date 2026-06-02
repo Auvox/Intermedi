@@ -35,7 +35,10 @@ function CadastroUser() {
 
       <button onClick={enviar}>
         Enviar
-      </button>
+      </button> 
+      <div>
+        olá {nome}
+      </div>
 
     </div>
   );
