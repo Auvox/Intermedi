@@ -6,7 +6,7 @@ function CadastroUser() {
 
   function enviar() {
 
-    fetch("http://localhost/repositorioIntermedi/Intermedi/backEnd/api/usuarios/cadastrar.php", {
+    fetch("http://localhost/repositorioIntermedi/Intermedi/backEnd/api/usuarios/cadastrarUsuario.php", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"

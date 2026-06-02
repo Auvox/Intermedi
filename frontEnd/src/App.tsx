@@ -1,5 +1,5 @@
 
-import CadastroUser from "./CadastroUser";
+import CadastroUser from "./components/CadastroUser";
 function App() {
 
   return (
