@@ -39,11 +39,10 @@ function CadastroUser() {
         complemento: complemento,
       })
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      alert(data.message);
-    })
+    .then(res => res.text())
+.then(data => {
+  console.log("RESPOSTA BRUTA:", data);
+})
     .catch(err => {
       console.log(err);
     });

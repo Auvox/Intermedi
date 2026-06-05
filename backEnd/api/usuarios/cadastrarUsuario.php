@@ -34,15 +34,15 @@ if(
     $cpf = $dados["cpf"];
     $email = $dados["email"];
     $senha = $dados["senha"];
-    $telefone = $telefone["telefone"];
-    $logradouro = $logradouro["logradouro"];
-    $numero = $numero["numero"];
-    $bairro = $bairro["bairro"];
-    $cidade = $cidade["cidade"];
-    $estado = $estado["estado"];
-    $uf = $uf["uf"];
-    $cep = $cep["cep"];
-    $complemento = $complemento["complemento"];
+    $telefone = $dados["telefone"];
+    $logradouro = $dados["logradouro"];
+    $numero = $dados["numero"];
+    $bairro = $dados["bairro"];
+    $cidade = $dados["cidade"];
+    $estado = $dados["estado"];
+    $uf = $dados["uf"];
+    $cep = $dados["cep"];
+    $complemento = $dados["complemento"];
 
     try{
 
