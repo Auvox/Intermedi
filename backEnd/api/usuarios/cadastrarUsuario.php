@@ -46,6 +46,32 @@ if(
 
     try{
 
+        $sql = "SELECT id FROM usuario WHERE cpf = :cpf";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(":cpf", $cpf);
+        $stmt->execute();
+
+        if($stmt->rowCount() > 0){
+            echo json_encode([
+                "sucesso" => false,
+                "mensagem" => "CPF já cadastrado"
+            ]);
+            exit;
+        }
+        
+        $sql = "SELECT id FROM usuario WHERE email = :email";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(":email", $email);
+        $stmt->execute();
+
+        if($stmt->rowCount() > 0){
+            echo json_encode([
+                "sucesso" => false,
+                "mensagem" => "E-Mail já cadastrado"
+            ]);
+            exit;
+        }
+
         $sql = "INSERT INTO usuario
                 (nome, cpf, email, senha, telefone, logradouro, numero, bairro, cidade, estado, uf, cep, complemento)
                 VALUES
