@@ -625,7 +625,7 @@ function useScrollReveal() {
   }, []);
 }
 
-export default function App() {
+export default function Intermedi() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   useScrollReveal();

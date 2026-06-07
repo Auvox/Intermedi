@@ -1,0 +1,1 @@
+Projeto preparado para separação de componentes. Removido node_modules do ZIP. LandingPage original preservada em src/components/LandingPage.tsx.
