@@ -1,13 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import "../LandingPage.css";
+import logoIntermedi from "../assets/logoIntermedi.png";
+import pilula from "../assets/pilula.png";
+import mancha from "../assets/mancha.png";
 
-/* ─── LOGO SVG inline ─── */
-const LogoIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="8" y="0" width="6" height="22" rx="3" fill="white"/>
-    <rect x="0" y="8" width="22" height="6" rx="3" fill="white"/>
-  </svg>
-);
 
 /* ─── REVEAL HOOK ─── */
 function useReveal() {
@@ -16,8 +12,10 @@ function useReveal() {
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { el.classList.add("visible"); obs.disconnect(); } },
-      { threshold: 0.12 }
+      ([entry]) => {
+        if (entry.isIntersecting) { el.classList.add("visible"); obs.disconnect(); }
+      },
+      { threshold: 0.08 }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -28,66 +26,62 @@ function useReveal() {
 /* ─── WHY CARDS DATA ─── */
 const whyCards = [
   {
-    icon: "📦",
-    title: <>Estoque <span className="green">Inteligente</span></>,
-    desc: "Medicamentos e produtos disponíveis com atualização em tempo real. Nunca perca uma venda por falta de estoque.",
+    icon: "bx bx-package",
+    title: <><strong>Estoque</strong> <span className="green">Inteligente</span></>,
+    desc: "Medicamentos e produtos disponíveis com atualização em tempo real.",
   },
   {
-    icon: "🔒",
-    title: <>Plataforma <span className="green">Segura</span></>,
-    desc: "Transações protegidas com criptografia avançada e fornecedores verificados para total tranquilidade.",
+    icon: "bx bx-shield-quarter",
+    title: <><strong>Plataforma</strong> <span className="green">Segura</span></>,
+    desc: "Transações protegidas e fornecedores verificados para maior tranquilidade.",
   },
   {
-    icon: "🚀",
-    title: <>Distribuição <span className="green">Rápida</span></>,
-    desc: "Entregas otimizadas com rastreamento em tempo real para garantir velocidade e eficiência operacional.",
+    icon: "bx bx-package",
+    title: <><strong>Distribuição</strong> <span className="green">Rápida</span></>,
+    desc: "Entregas otimizadas para garantir velocidade e eficiência operacional.",
   },
 ];
 
 /* ─── HOW STEPS DATA ─── */
 const howSteps = [
-  { icon: "🔍", num: "01", title: "Busca", desc: "Encontre o medicamento que precisa em nosso catálogo completo e atualizado." },
-  { icon: "🏢", num: "02", title: "Fornecedor", desc: "Conectamos você aos melhores distribuidores e laboratórios verificados." },
-  { icon: "📋", num: "03", title: "Pedido", desc: "Realize seu pedido de forma simples, rápida e 100% digital." },
-  { icon: "🚛", num: "04", title: "Entrega", desc: "Acompanhe cada etapa da entrega até a chegada na sua farmácia." },
+  { icon: "bx bx-search", title: "Busca" },
+  { icon: "bx bx-building-house", title: "Fornecedor" },
+  { icon: "bx bx-clipboard", title: "Pedido" },
+  { icon: "bx bx-truck", title: "Entrega" },
 ];
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  /* scroll navbar */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* reveal refs */
-  const whyRef   = useReveal();
-  const howRef   = useReveal();
-  const partRef  = useReveal();
-  const ctaRef   = useReveal();
+  const whyRef  = useReveal();
+  const howRef  = useReveal();
+  const partRef = useReveal();
 
   return (
     <div className="lp-root">
+
       {/* ══════════ NAV ══════════ */}
       <nav className={`lp-nav${scrolled ? " scrolled" : ""}`}>
         <a href="#" className="lp-logo">
-          <div className="lp-logo-icon"><LogoIcon /></div>
-          <span className="lp-logo-text"><span>Inter</span>medi</span>
+          <img src={logoIntermedi} alt="Intermedi" className="lp-logo-img" />
         </a>
 
         <ul className="lp-nav-links">
-          <li><a href="#inicio">Início</a></li>
+          <li className="active"><a href="#inicio">Inicio</a></li>
           <li><a href="#como-funciona">Como funciona</a></li>
-          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#catalogo">Catálogo <i className="bx bx-chevron-down" /></a></li>
           <li><a href="#parceiros">Parceiros</a></li>
         </ul>
 
         <div className="lp-nav-actions">
-          <button className="btn-ghost">Entrar</button>
-          <button className="btn-primary">Cadastrar</button>
+          <button className="btn-nav-primary">Entrar</button>
         </div>
 
         <button className="lp-hamburger" onClick={() => setMenuOpen(v => !v)} aria-label="Menu">
@@ -101,74 +95,47 @@ export default function LandingPage() {
         <a href="#como-funciona" onClick={() => setMenuOpen(false)}>Como funciona</a>
         <a href="#catalogo" onClick={() => setMenuOpen(false)}>Catálogo</a>
         <a href="#parceiros" onClick={() => setMenuOpen(false)}>Parceiros</a>
-        <button className="btn-primary" style={{marginTop:8}}>Entrar</button>
+        <button className="btn-nav-primary" style={{ marginTop: 8 }}>Entrar</button>
       </div>
 
       {/* ══════════ HERO ══════════ */}
       <section className="lp-hero" id="inicio">
-        <div className="lp-hero-bg" />
-        <div className="lp-hero-grid" />
-
         <div className="lp-hero-inner">
           {/* LEFT */}
           <div className="lp-hero-content">
-            <div className="lp-hero-badge">
-              <span className="dot" />
-              Plataforma Farmacêutica B2B
-            </div>
-
             <h1 className="lp-hero-title">
               <span className="green">Inter</span>ligando<br />
-              medic<span className="outline">amentos</span>
+              <strong>medicamentos</strong>
             </h1>
-
             <p className="lp-hero-sub">
-              A solução completa para conectividade entre farmácias e fornecedores.
-              Adquira medicamentos de forma <strong>fácil, rápida e segura</strong>.
+              A solução para conectividade, adquirindo medicamentos para
+              sua farmácia de maneira fácil, rápido e segura.
             </p>
-
             <div className="lp-hero-actions">
-              <button className="btn-hero-primary">Explorar Catálogo</button>
-              <button className="btn-hero-outline">Saiba mais →</button>
-            </div>
-
-            <div className="lp-hero-stats">
-              <div className="lp-stat-item">
-                <span className="lp-stat-number">+2<span>k</span></span>
-                <span className="lp-stat-label">Farmácias parceiras</span>
-              </div>
-              <div className="lp-stat-item">
-                <span className="lp-stat-number">+12<span>k</span></span>
-                <span className="lp-stat-label">Medicamentos</span>
-              </div>
-              <div className="lp-stat-item">
-                <span className="lp-stat-number">99<span>%</span></span>
-                <span className="lp-stat-label">Satisfação</span>
-              </div>
+              <button className="btn-hero-primary">Explorar catálogo</button>
+              <button className="btn-hero-outline">Saiba mais</button>
             </div>
           </div>
 
           {/* RIGHT — visual */}
           <div className="lp-hero-visual">
-            <div className="lp-hero-capsule-wrap">
-              <div className="lp-hero-orbit" />
-              <div className="lp-hero-orbit lp-hero-orbit-2" />
+            <div className="lp-hero-img-wrap">
+              <img src={mancha} alt="" className="lp-hero-mancha" aria-hidden />
+              <img src={pilula} alt="Pílula Intermedi" className="lp-hero-pilula" />
 
-              <div className="lp-hero-center">
-                <div className="lp-pill-icon">
-                  <div className="lp-pill-head" />
-                  <div className="lp-pill-body" />
-                </div>
+              {/* floating cards */}
+              <div className="lp-float-card card-medicamento">
+                <i className="bx bx-capsule" />
+                <span>Medicamento</span>
+              </div>
+              <div className="lp-float-card card-conexao">
+                <i className="bx bx-share-alt" />
+                <span>Conexão</span>
               </div>
 
-              <div className="lp-hero-float-card card-1">
-                <span className="card-dot" />
-                Medicamento
-              </div>
-              <div className="lp-hero-float-card card-2">
-                <span className="card-dot" />
-                Conexão segura
-              </div>
+              {/* crosses decoration */}
+              <span className="hero-cross cross-tl">+</span>
+              <span className="hero-cross cross-tr">+</span>
             </div>
           </div>
         </div>
@@ -177,22 +144,29 @@ export default function LandingPage() {
       {/* ══════════ WHY ══════════ */}
       <section className="lp-section lp-why" id="catalogo">
         <div className="lp-section-inner">
-          <div className="lp-why-header reveal" ref={whyRef}>
-            <div className="lp-section-tag">Benefícios</div>
+          <div className="lp-section-head reveal" ref={whyRef}>
             <h2 className="lp-section-title">
-              Por que escolher a <span className="green">Intermedi</span>?
+              <span className="chevron-left">▶</span>
+              {" "}Por que <span className="green">escolher</span> a <span className="green">Inter</span>medi ?{" "}
+              <span className="chevron-right">◀</span>
             </h2>
             <p className="lp-section-sub">
-              Encontre os medicamentos que sua farmácia precisa em nosso catálogo completo e atualizado.
+              Encontre os medicamentos que sua farmácia precisa em nosso<br />
+              catalogo completo e atualizado.
             </p>
           </div>
 
           <div className="lp-why-cards">
             {whyCards.map((card, i) => (
               <div className={`lp-why-card reveal reveal-delay-${i + 1}`} key={i}>
-                <div className="lp-why-icon">{card.icon}</div>
-                <h3>{card.title}</h3>
-                <p>{card.desc}</p>
+                <div className="lp-why-card-left">
+                  <h3>{card.title}</h3>
+                  <div className="lp-why-underline" />
+                  <p>{card.desc}</p>
+                </div>
+                <div className="lp-why-icon">
+                  <i className={card.icon} />
+                </div>
               </div>
             ))}
           </div>
@@ -202,24 +176,35 @@ export default function LandingPage() {
       {/* ══════════ HOW IT WORKS ══════════ */}
       <section className="lp-section lp-how" id="como-funciona">
         <div className="lp-section-inner">
-          <div className="lp-how-header reveal" ref={howRef}>
-            <div className="lp-section-tag">Processo</div>
+          <div className="lp-section-head reveal" ref={howRef}>
             <h2 className="lp-section-title">
-              Como a <span className="green">Intermedi</span> funciona
+              <span className="chevron-left">▶</span>
+              {" "}Como a <span className="green">Inter</span><span className="green">medi</span> funciona{" "}
+              <span className="chevron-right">◀</span>
             </h2>
             <p className="lp-section-sub">
               Encontre, solicite e acompanhe medicamentos em uma plataforma integrada, segura e eficiente.
             </p>
           </div>
 
-          <div className="lp-how-steps">
+          <div className="lp-how-track">
             {howSteps.map((step, i) => (
-              <div className={`lp-how-step reveal reveal-delay-${i + 1}`} key={i}>
-                <div className="lp-how-step-num">
-                  <span className="lp-how-step-icon">{step.icon}</span>
+              <div className="lp-how-step" key={i}>
+                <div className="lp-how-circle">
+                  <i className={step.icon} />
                 </div>
-                <h4>{step.title}</h4>
-                <p>{step.desc}</p>
+                {i < howSteps.length - 1 && (
+                  <div className="lp-how-arrow">
+                    <i className="bx bx-chevrons-right" />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="lp-how-labels">
+            {howSteps.map((step, i) => (
+              <div className="lp-how-label" key={i}>
+                <span>{step.title}</span>
               </div>
             ))}
           </div>
@@ -229,59 +214,44 @@ export default function LandingPage() {
       {/* ══════════ PARTNERS ══════════ */}
       <section className="lp-section lp-partners" id="parceiros">
         <div className="lp-section-inner">
-          <div className="lp-partners-header reveal" ref={partRef}>
-            <div className="lp-section-tag">Ecossistema</div>
+          <div className="lp-section-head reveal" ref={partRef}>
             <h2 className="lp-section-title">
-              Parceiros de <span className="green">Confiança</span>
+              <span className="chevron-left">▶</span>
+              {" "}Parceiros de <span className="green">Confiança</span>{" "}
+              <span className="chevron-right">◀</span>
             </h2>
             <p className="lp-section-sub">
-              Conectamos farmácias, distribuidores e laboratórios parceiros para garantir qualidade,
-              segurança e eficiência na distribuição de medicamentos.
+              Conectamos farmácias, distribuidores e laboratórios parceiros para garantir qualidade, segurança e
+              eficiência na distribuição de medicamentos.
             </p>
           </div>
 
           <div className="lp-partners-grid">
-            <div className="lp-partner-card reveal reveal-delay-1">
-              <div className="lp-partner-card-label">Para Farmácias & Distribuidores</div>
-              <h3>Gestão completa do seu negócio</h3>
-              <ul className="lp-partner-list">
-                {["Gestão de estoque", "Compras simplificadas", "Fornecedores confiáveis", "Relatórios inteligentes"].map((item) => (
-                  <li key={item}>
-                    <span className="lp-partner-check">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <div className="lp-partner-card lp-partner-card--green reveal reveal-delay-1">
+              {/* decorative curves */}
+              <div className="partner-deco deco-br" />
             </div>
-
-            <div className="lp-partner-card reveal reveal-delay-2">
-              <div className="lp-partner-card-label">Para Consumidores</div>
-              <h3>Encontre o que precisa, onde precisar</h3>
-              <ul className="lp-partner-list">
-                {["Busca de medicamentos", "Comparação de preços", "Localização das farmácias", "Disponibilidade em tempo real"].map((item) => (
-                  <li key={item}>
-                    <span className="lp-partner-check">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <div className="lp-partner-card lp-partner-card--white reveal reveal-delay-2">
+              <div className="partner-deco deco-br" />
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ══════════ CTA ══════════ */}
-      <section className="lp-cta">
-        <div className="lp-cta-inner">
-          <div className="lp-cta-box reveal" ref={ctaRef}>
-            <h2>Pronto para <span className="green">transformar</span><br />sua farmácia?</h2>
-            <p>
-              Junte-se a mais de 2.000 farmácias que já confiam na Intermedi
-              para gerenciar seus medicamentos com segurança e eficiência.
-            </p>
-            <div className="lp-cta-btns">
-              <button className="btn-hero-primary">Começar agora</button>
-              <button className="btn-hero-outline">Falar com especialista</button>
+          <div className="lp-partners-lists">
+            <div className="lp-partner-list-card reveal reveal-delay-1">
+              <div className="lp-partner-list-title">Para <span className="green">Farmácias &amp; Distribuidores</span></div>
+              <ul>
+                {["Gestão de estoque", "Compras simplificadas", "Fornecedores confiáveis", "Relatorios inteligentes"].map(item => (
+                  <li key={item}><i className="bx bx-check" />{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="lp-partner-list-card reveal reveal-delay-2">
+              <div className="lp-partner-list-title">Para <span className="green">Consumidores</span></div>
+              <ul>
+                {["Busca de medicamentos", "Comparação de preços", "Localização das farmácias", "Disponibilidades em tempo real"].map(item => (
+                  <li key={item}><i className="bx bx-check" />{item}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -290,55 +260,41 @@ export default function LandingPage() {
       {/* ══════════ FOOTER ══════════ */}
       <footer className="lp-footer">
         <div className="lp-footer-inner">
-          <div className="lp-footer-top">
-            <div className="lp-footer-brand">
-              <div className="lp-logo">
-                <div className="lp-logo-icon"><LogoIcon /></div>
-                <span className="lp-logo-text"><span>Inter</span>medi</span>
-              </div>
-              <p>Interligando medicamentos entre farmácias, distribuidores e laboratórios com segurança e eficiência.</p>
-            </div>
-
-            <div className="lp-footer-col">
-              <h4>Links</h4>
-              <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#como-funciona">Como funciona</a></li>
-                <li><a href="#catalogo">Catálogo</a></li>
-                <li><a href="#parceiros">Parceiros</a></li>
-              </ul>
-            </div>
-
-            <div className="lp-footer-col">
-              <h4>Legal</h4>
-              <ul>
-                <li><a href="#">Política de Privacidade</a></li>
-                <li><a href="#">Termos de Uso</a></li>
-                <li><a href="#">Cookies</a></li>
-              </ul>
-            </div>
-
-            <div className="lp-footer-col">
-              <h4>Contato</h4>
-              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                <div className="contact-item"><span>✉</span> contato@intermedi.com.br</div>
-                <div className="contact-item"><span>📞</span> (11) 99999-9999</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="lp-footer-bottom">
-            <span className="lp-footer-copy">
-              © 2026 Intermedi. Todos os direitos reservados.{" "}
-              <a href="#">Política de Privacidade</a> · <a href="#">Termos de Uso</a>
-            </span>
-
+          <div className="lp-footer-brand">
+            <img src={logoIntermedi} alt="Intermedi" className="lp-footer-logo" />
+            <p>Interligando medicamentos</p>
             <div className="lp-footer-socials">
-              <a href="#" className="social-btn" aria-label="Instagram">𝕀</a>
-              <a href="#" className="social-btn" aria-label="LinkedIn">in</a>
-              <a href="#" className="social-btn" aria-label="Facebook">f</a>
+              <a href="#" aria-label="Instagram"><i className="bx bxl-instagram" /></a>
+              <a href="#" aria-label="LinkedIn"><i className="bx bxl-linkedin" /></a>
+              <a href="#" aria-label="Facebook"><i className="bx bxl-facebook" /></a>
             </div>
           </div>
+
+          <div className="lp-footer-col">
+            <h4>Links</h4>
+            <ul>
+              <li><a href="#inicio">• Inicio</a></li>
+              <li><a href="#como-funciona">• Como funciona</a></li>
+              <li><a href="#catalogo">• Catálogo</a></li>
+              <li><a href="#parceiros">• Parceiros</a></li>
+            </ul>
+          </div>
+
+          <div className="lp-footer-col">
+            <h4>Contato</h4>
+            <div className="footer-contact-item">
+              <i className="bx bx-envelope" />
+              <span>contatointermedi.com.br</span>
+            </div>
+            <div className="footer-contact-item">
+              <i className="bx bx-phone" />
+              <span>(11) 99999-9999</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="lp-footer-bottom">
+          <span>© 2026 Intermedi. Todos os direitos reservados.</span>
         </div>
       </footer>
     </div>
