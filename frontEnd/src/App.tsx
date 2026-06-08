@@ -7,6 +7,9 @@ import mancha from "./assets/mancha.png";
 import fundoCruz from "./assets/fundoCruz.png"
 import logoI from "./assets/logoI.png"
 import logoFooter from "./assets/logoFooter.png"
+import MapSection from "./components/sections/MapSection.tsx";
+import CadastroUser from "./components/CadastroUser.tsx";
+import LoginUser from "./components/LoginUser.tsx";
 
 
   function useReveal() {
@@ -308,6 +311,8 @@ export default function LandingPage() {
   </div>
 </section>
 
+<MapSection />
+
       {/* ══════════ FOOTER ══════════ */}
       <footer className="lp-footer">
         <div className="lp-footer-inner">
@@ -348,6 +353,8 @@ export default function LandingPage() {
           <span>© 2026 Intermedi. Todos os direitos reservados.</span>
         </div>
       </footer>
+      <CadastroUser />
+      <LoginUser />
     </div>
 
   );

@@ -2,7 +2,10 @@
    MAP SECTION — Intermedi
    ============================================================ */
 
-.mapsection { background: #fff; }
+.mapsection { 
+  background: #fff; 
+  padding: 25px
+}
 
 .map-wrapper {
   position: relative;

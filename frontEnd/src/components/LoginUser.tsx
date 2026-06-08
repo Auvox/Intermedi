@@ -22,7 +22,7 @@ function LoginUser() {
     )
       .then(res => res.json())
       .then(data => {
-        console.log(data);git status
+        console.log(data);
       })
       .catch(err => {
         console.log(err);
