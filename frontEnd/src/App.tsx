@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import "./LandingPage.css"; // Se o seu CSS principal for esse arquivo
 import logoIntermedi from "./assets/logoIntermedi.png";
@@ -348,5 +349,6 @@ export default function LandingPage() {
         </div>
       </footer>
     </div>
+
   );
 }
