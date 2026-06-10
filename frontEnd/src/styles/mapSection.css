@@ -15,6 +15,16 @@
     margin: 0 auto;
   }
   
+  /* ── Header da Seção ── */
+  .mapsection .section-header {
+    text-align: left;
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
   /* Títulos da Seção (Seguindo a hierarquia visual do Hero) */
   .map-section-title {
     font-family: "Sora", sans-serif;
@@ -48,7 +58,7 @@
     position: relative; /* CRÍTICO: Garante que as coordenadas do SVG se baseiem nesta caixa */
     width: 100%;
     background-color: var(--gray); /* Mesma cor de fundo suave da seção Hero */
-    border-radius: var(--radius-lg);
+    border-radius: 24px;
     overflow: hidden;
     border: 1px solid var(--gray2);
     box-shadow: var(--shadow-sm);

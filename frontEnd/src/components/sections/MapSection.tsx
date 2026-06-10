@@ -261,18 +261,17 @@ export default function MapSection() {
       <div className="section-container">
         {/* Header da Seção integrado ao estilo do Hero */}
         <div className="section-header reveal">
+          <div className="map-badge">
+            <span className="map-badge-dot" />
+            AO VIVO
+          </div>
           <h2 className="map-section-title">
             Matches acontecendo <span className="green">agora</span> em São
             Paulo
           </h2>
-          <div className="map-badge">
-            <span className="map-badge-dot" />
-            <div className="map-legend-item">
-              <span className="map-legend-dot" style={{ background: "red" }} />
-              AO VIVO
-            </div>
-            
-          </div>
+          <p className="map-section-subtitle">
+            Veja em tempo real as conexões entre farmácias acontecendo pelo estado.
+          </p>
         </div>
 
         <div className="map-wrapper reveal">
