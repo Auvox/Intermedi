@@ -233,6 +233,7 @@ body { background: var(--white); color: var(--text); font-family: var(--font); o
 
 /* CARDS FLUTUANTES (Efeito Vidro Fosco / Glassmorphism) */
 .lp-float-card {
+  
   position: absolute; 
   z-index: 2;
   background: rgba(255, 255, 255, 0.88); 
@@ -273,6 +274,7 @@ body { background: var(--white); color: var(--text); font-family: var(--font); o
 
 /* Alinhamento dos elementos nas posições exatas do design */
 .card-medicamento { 
+
   top: 32%; 
   left: -40px; 
   animation-delay: 0s; 
@@ -563,6 +565,8 @@ body { background: var(--white); color: var(--text); font-family: var(--font); o
   .lp-partners-grid, .lp-partners-lists { grid-template-columns: 1fr; }
   .lp-footer-inner { grid-template-columns: 1fr 1fr; }
   .lp-footer-brand { grid-column: 1 / -1; }
+  .card-medicamento {display: none;}
+  .card-conexao {display: none;}
 }
 
 @media (max-width: 768px) {
