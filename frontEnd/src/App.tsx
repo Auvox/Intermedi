@@ -12,6 +12,7 @@ import CadastroUser from "./components/CadastroUser.tsx";
 import LoginUser from "./components/LoginUser.tsx";
 
 //teste
+//teste
   function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
   
