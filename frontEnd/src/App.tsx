@@ -8,7 +8,7 @@ import fundoCruz from "./assets/fundoCruz.png"
 import logoI from "./assets/logoI.png"
 import logoFooter from "./assets/logoFooter.png"
 import MapSection from "./components/sections/MapSection.tsx";
-import CadastroUser from "./components/CadastroUser.tsx";
+import CadastroUser from "./components/CadastroUser.jsx";
 import LoginUser from "./components/LoginUser.tsx";
 
 //teste

@@ -35,7 +35,7 @@ export function useForm(type) {
     setValue, 
     onChange, 
     erro,
-    onBlur: validate(value), 
-    validate: validate(value)
+    onBlur: () =>validate(value), 
+    validate:() => validate(value)
   }
 }
