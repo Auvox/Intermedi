@@ -3,7 +3,7 @@ import React from 'react'
 export const Input = ({
     label,
     id, 
-    onchange,
+    onChange,
     value, 
     type, 
     onBlur, 
@@ -17,7 +17,7 @@ export const Input = ({
             <input 
             id={id}
             name={id}
-            onChange={onchange}
+            onChange={onChange}
             placeholder={placeHolder}
             onBlur={onBlur}
             type={type}            

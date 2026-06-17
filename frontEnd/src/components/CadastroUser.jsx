@@ -4,7 +4,7 @@ import { Input } from "./Input.jsx";
 
  function CadastroUser() {
 
-  const nome = useForm("nome")
+  const nome = useForm('nome')
   
 
   function handleSubmit(e) {
@@ -19,7 +19,14 @@ import { Input } from "./Input.jsx";
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <Input />
+        <Input 
+          label="Nome" 
+          id="nome"
+          type="text"
+          placeHolder={"Usuario"}
+          {...nome}
+        />
+        <button>Enviar</button>
       </form>
     </div>
   );
