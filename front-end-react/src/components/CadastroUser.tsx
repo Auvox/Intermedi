@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm } from "../hooks/useForm.jsx";
+import { useForm } from "../hooks/useForm.js";
 import { Input } from "./Input.jsx";
 
 function CadastroUser() {

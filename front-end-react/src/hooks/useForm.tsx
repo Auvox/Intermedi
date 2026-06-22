@@ -55,11 +55,11 @@ const types = {
   
 };
 
-export function useForm(type) {
+export function useForm(type: string) {
   const [value, setValue] = React.useState("");
   const [erro, setErro] = React.useState(null);
 
-  function validate(value) {
+  function validate(value: string) {
     if (type === false) return true;
     if (value.length === 0) {
       setErro("Preenha um valor");
