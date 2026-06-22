@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "../hooks/useForm.js";
-import { Input } from "./Input.jsx";
+import { Input } from "../components/Input.jsx";
 
 function CadastroUser() {
   const nome = useForm("nome");

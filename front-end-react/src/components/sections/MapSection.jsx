@@ -43,53 +43,24 @@ const MEDS = [
   "Sinvastatina 20mg",
 ];
 
-const FEED_MSGS: ((a: string, b: string, m: string) => string)[] = [
-  (a: string, b: string, m: string) => `Match: ${a} → ${b} (${m})`,
-  (a: string, b: string, m: string) => `${a} enviando ${m} para ${b}`,
-  (_a: string, b: string, m: string) => `Chamado resolvido: ${m} em ${b}`,
+const FEED_MSGS = [
+  (a, b, m) => `Match: ${a} → ${b} (${m})`,
+  (a, b, m) => `${a} enviando ${m} para ${b}`,
+  (a, b, m) => `Chamado resolvido: ${m} em ${b}`,
 ];
-
-interface CityData {
-  id: string;
-  name: string;
-  x: number;
-  y: number;
-  label: string;
-  color: string;
-  isShort: boolean;
-}
-interface FeedItem {
-  id: number;
-  text: string;
-}
-interface MatchLine {
-  id: number;
-  x1: number;
-  y1: number;
-  x2: number;
-  y2: number;
-  prog: number;
-}
-interface PulseRing {
-  id: number;
-  cx: number;
-  cy: number;
-  r: number;
-  opacity: number;
-}
 
 export default function MapSection() {
   const [matchCount, setMatchCount] = useState(0);
   const [activeCount, setActiveCount] = useState(0);
   const [medCount, setMedCount] = useState(0);
-  const [feed, setFeed] = useState<FeedItem[]>([]);
-  const [lines, setLines] = useState<MatchLine[]>([]);
-  const [pulses, setPulses] = useState<PulseRing[]>([]);
-  const [cities, setCities] = useState<CityData[]>([]);
+  const [feed, setFeed] = useState([]);
+  const [lines, setLines] = useState([]);
+  const [pulses, setPulses] = useState([]);
+  const [cities, setCities] = useState([]);
 
   const idRef = useRef(0);
-  const citiesRef = useRef<CityData[]>([]);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const citiesRef = useRef([]);
+  const sectionRef = useRef(null);
 
   // Efeito de revelação ao rolar o scroll
   useEffect(() => {
@@ -146,8 +117,8 @@ export default function MapSection() {
 
   // Controle de conexões e animações em tempo real (Sem Warnings)
   useEffect(() => {
-    const activeIntervals: ReturnType<typeof setInterval>[] = [];
-    const activeTimeouts: ReturnType<typeof setTimeout>[] = [];
+    const activeIntervals = [];
+    const activeTimeouts = [];
     let isMounted = true;
 
     const fireMatch = () => {
