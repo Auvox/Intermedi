@@ -8,6 +8,7 @@ import logoI from "./assets/logoI.png"
 import logoFooter from "./assets/logoFooter.png"
 import MapSection from "./components/sections/MapSection.jsx";
 import LandingPage from "./pages/LandingPage";
+import Rotas from "./router/router";
 
 //teste
 
@@ -15,7 +16,8 @@ import LandingPage from "./pages/LandingPage";
   function App() {
     return (
       <>
-        <LandingPage />
+        {/* <LandingPage /> */}
+        <Rotas />
       </>
     )
   } 
