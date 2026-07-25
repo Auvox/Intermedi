@@ -1,0 +1,60 @@
+/* Estrutura compartilhada pelos formulários em modal. */
+
+.im-form__cabecalho {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 28px 28px 0;
+}
+
+.im-form__titulo {
+  margin-top: 4px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  color: var(--im-ink);
+}
+
+.im-form__fechar {
+  padding: 8px;
+  border: 1px solid var(--im-line);
+  border-radius: var(--im-r-md);
+  background: var(--im-white);
+}
+@media (min-width: 640px) { .im-form__fechar { display: none; } }
+
+.im-form__corpo { padding: 24px 28px 28px; }
+
+.im-form__campos { display: grid; gap: 16px; }
+.im-form__campos--2 { grid-template-columns: 1fr 1fr; }
+.im-form__campos--3 { grid-template-columns: repeat(3, 1fr); }
+.im-form__largo { grid-column: 1 / -1; }
+
+.im-form__grupo + .im-form__grupo { margin-top: 16px; }
+
+.im-form__opcoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+
+.im-form__opcao {
+  flex: 1;
+  min-width: 92px;
+  padding: 12px;
+  border: 1px solid var(--im-line);
+  border-radius: var(--im-r-md);
+  background: var(--im-white);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--im-slate);
+  transition: transform .22s var(--im-ease), background .25s ease, border-color .25s ease, color .25s ease;
+}
+.im-form__opcao:hover { transform: translateY(-1px); }
+.im-form__opcao--ativa {
+  background: var(--im-green-soft);
+  border-color: var(--im-green);
+  color: var(--im-green-dark);
+}
+
+@media (max-width: 640px) {
+  .im-form__campos--2,
+  .im-form__campos--3 { grid-template-columns: 1fr; }
+}

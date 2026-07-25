@@ -1,0 +1,25 @@
+.im-abas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 4px;
+  border-radius: var(--im-r-lg);
+  background: var(--im-fill);
+}
+
+.im-abas__item {
+  padding: 8px 16px;
+  border-radius: var(--im-r-md);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--im-slate);
+  transition: background .25s ease, color .25s ease, box-shadow .25s ease;
+}
+
+.im-abas__item:hover { color: var(--im-ink); }
+
+.im-abas__item--ativa {
+  background: var(--im-white);
+  color: var(--im-ink);
+  box-shadow: var(--im-shadow-tab);
+}

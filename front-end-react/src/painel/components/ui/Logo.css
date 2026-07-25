@@ -1,0 +1,12 @@
+.im-logo { display: flex; align-items: center; gap: 8px; }
+
+.im-logo__texto {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: var(--im-tracking-tight);
+  color: var(--im-ink);
+}
+
+.im-logo__medi { font-weight: 400; }
+
+.im-logo--escuro .im-logo__texto { color: var(--im-white); }

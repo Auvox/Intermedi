@@ -1,0 +1,24 @@
+.im-card {
+  background: var(--im-white);
+  border: 1px solid var(--im-line);
+  border-radius: var(--im-r-xl);
+  box-shadow: var(--im-shadow-card);
+}
+
+.im-card--elevar {
+  transition:
+    transform .4s var(--im-ease),
+    box-shadow .4s var(--im-ease),
+    border-color .4s ease;
+}
+
+.im-card--elevar:hover {
+  transform: translateY(-4px);
+  border-color: #D3E6DA;
+  box-shadow: var(--im-shadow-card-hover);
+}
+
+/* assinatura da home page */
+.im-card--deslocada { box-shadow: 12px 12px 0 0 var(--im-green); }
+
+.im-card--tracejado { border-style: dashed; }

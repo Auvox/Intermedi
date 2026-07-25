@@ -1,0 +1,16 @@
+.im-conteudo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.im-principal { flex: 1; padding: 32px 20px; }
+
+.im-rodape { padding: 24px 20px; }
+.im-rodape p { font-size: 12px; color: var(--im-slate); }
+
+@media (min-width: 1024px) {
+  .im-principal { padding: 32px; }
+  .im-rodape { padding: 24px 32px; }
+}

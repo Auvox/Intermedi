@@ -1,0 +1,38 @@
+.im-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.im-tag--neutro   { background: #F1F4F6; color: var(--im-slate); }
+.im-tag--cinza    { background: #EEF2F6; color: #516170; }
+.im-tag--verde    { background: var(--im-green-soft); color: var(--im-green-dark); }
+.im-tag--azul     { background: #E8F1FE; color: #1D4ED8; }
+.im-tag--ambar    { background: #FEF3E2; color: #B45309; }
+.im-tag--vermelho { background: #FDEBEB; color: #B91C1C; }
+.im-tag--ouro     { background: #FDF4DC; color: #A16207; }
+.im-tag--prata    { background: #F1F4F6; color: #52616D; }
+.im-tag--indigo   { background: #EDF0FE; color: #4338CA; }
+.im-tag--vidro    { background: rgba(255,255,255,.14); color: var(--im-white); }
+
+/* ---- tipo do chamado ---- */
+.im-tipo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: var(--im-r-sm);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+}
+
+.im-tipo--falta { background: #FDEBEB; color: var(--im-red); }
+.im-tipo--sobra { background: var(--im-green-soft); color: var(--im-green); }

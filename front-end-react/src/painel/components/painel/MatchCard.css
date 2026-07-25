@@ -1,0 +1,101 @@
+.im-match { overflow: hidden; }
+
+.im-match__topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 20px 16px;
+}
+
+.im-match__identidade { display: flex; align-items: center; gap: 8px; }
+
+.im-match__logistica { font-size: 12px; font-weight: 500; color: var(--im-slate); }
+
+.im-match__item { padding: 0 20px; }
+
+.im-match__medicamento {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--im-ink);
+}
+
+.im-match__detalhe { font-size: 14px; color: var(--im-slate); }
+.im-match__detalhe strong { color: var(--im-ink); }
+
+/* ---- as duas faces ---- */
+.im-match__par {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  margin: 20px;
+  border: 1px solid var(--im-line);
+  border-radius: var(--im-r-lg);
+}
+
+.im-match__face {
+  padding: 16px;
+  transition: transform .5s var(--im-ease);
+}
+
+.im-match__face--falta { background: var(--im-face-falta); }
+
+.im-match__face--sobra {
+  background: var(--im-face-sobra);
+  text-align: right;
+}
+.im-match__face--sobra .im-tipo { margin-left: auto; }
+
+.im-match:hover .im-match__face--falta { transform: translateX(-5px); }
+.im-match:hover .im-match__face--sobra { transform: translateX(5px); }
+
+.im-match__farmacia {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--im-ink);
+}
+
+.im-match__cidade  { font-size: 12px; color: var(--im-slate); }
+.im-match__chamado { margin-top: 4px; font-size: 12px; font-weight: 700; color: var(--im-slate); }
+
+/* ---- selo central ---- */
+.im-match__selo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 999px;
+  color: var(--im-white);
+  background: linear-gradient(140deg, var(--im-green-bright), var(--im-green) 60%, var(--im-green-dark));
+  box-shadow: 0 0 0 6px var(--im-white), 0 12px 26px -10px var(--im-green);
+  transition: transform .5s var(--im-ease), box-shadow .5s ease;
+}
+
+.im-match:hover .im-match__selo {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow:
+    0 0 0 6px var(--im-white),
+    0 0 0 13px rgba(0,177,79,.12),
+    0 16px 32px -10px var(--im-green);
+}
+
+.im-match__percentual { font-size: 18px; font-weight: 700; line-height: 1; }
+.im-match__legenda { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; opacity: .85; }
+
+.im-match__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px 20px;
+}

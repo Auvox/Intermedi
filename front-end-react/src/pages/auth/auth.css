@@ -1,0 +1,257 @@
+/* ============================================================
+   AUTH — Login e Cadastro da Intermedi
+   Painel branco central, laterais verdes com padrão orgânico.
+   Tudo com prefixo .au- e sob .au-tela: não colide com o resto.
+   ============================================================ */
+
+.au-tela {
+  --au-green:        #22C55E;
+  --au-green-strong: #16A34A;
+  --au-green-deep:   #0F9A46;
+  --au-ink:          #1F2937;
+  --au-label:        #9CA3AF;
+  --au-line:         #D8DDE1;
+  --au-white:        #FFFFFF;
+  --au-t:            .3s cubic-bezier(.2,.8,.2,1);
+
+  position: fixed;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 620px) 1fr;
+  min-height: 100vh;
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: var(--au-green);
+  overflow-y: auto;
+}
+
+/* ---- laterais verdes com padrão ---- */
+.au-lado {
+  position: relative;
+  overflow: hidden;
+  background: var(--au-green);
+}
+.au-lado::before,
+.au-lado::after {
+  content: "";
+  position: absolute;
+  border-radius: 42% 58% 55% 45% / 52% 48% 52% 48%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* manchas orgânicas (login) */
+.au-tela--login .au-lado::before { width: 340px; height: 340px; top: 4%;  left: -90px; }
+.au-tela--login .au-lado::after  { width: 420px; height: 420px; bottom: 2%; right: -140px;
+  border-radius: 55% 45% 48% 52% / 45% 55% 45% 55%; }
+.au-tela--login .au-lado--dir::before { left: auto; right: -90px; top: 10%; }
+.au-tela--login .au-lado--dir::after  { right: auto; left: -140px; bottom: 8%; }
+
+/* ---- painel central branco ---- */
+.au-painel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 64px;
+  background: var(--au-white);
+}
+
+/* ---- topo com ícone ---- */
+.au-emblema {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 44px;
+  color: var(--au-green);
+  animation: au-pop .5s var(--au-t) both;
+}
+.au-emblema svg { display: block; }
+
+/* ---- formulário ---- */
+.au-form { width: 100%; max-width: 420px; }
+
+.au-campo {
+  position: relative;
+  margin-bottom: 30px;
+  animation: au-sobe .5s var(--au-t) both;
+}
+.au-campo:nth-child(1) { animation-delay: .04s; }
+.au-campo:nth-child(2) { animation-delay: .10s; }
+.au-campo:nth-child(3) { animation-delay: .16s; }
+.au-campo:nth-child(4) { animation-delay: .22s; }
+.au-campo:nth-child(5) { animation-delay: .28s; }
+.au-campo:nth-child(6) { animation-delay: .34s; }
+
+.au-input {
+  width: 100%;
+  padding: 8px 34px 10px 2px;
+  border: none;
+  border-bottom: 1px solid var(--au-line);
+  background: transparent;
+  font-family: inherit;
+  font-size: 17px;
+  color: var(--au-ink);
+  outline: none;
+  transition: border-color var(--au-t);
+}
+.au-input::placeholder { color: var(--au-label); transition: color var(--au-t); }
+
+/* linha verde que cresce do centro no foco */
+.au-campo::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--au-green);
+  transform: translateX(-50%);
+  transition: width var(--au-t);
+}
+.au-campo:focus-within::after { width: 100%; }
+.au-campo:focus-within .au-input::placeholder { color: var(--au-green-strong); }
+
+/* olho de senha */
+.au-olho {
+  position: absolute;
+  right: 2px;
+  top: 6px;
+  padding: 4px;
+  border: none;
+  background: none;
+  color: var(--au-label);
+  cursor: pointer;
+  transition: color var(--au-t), transform var(--au-t);
+}
+.au-olho:hover { color: var(--au-green-strong); transform: scale(1.1); }
+
+/* ---- linha lembre / esqueceu (login) ---- */
+.au-linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: -6px 0 30px;
+  animation: au-sobe .5s var(--au-t) .32s both;
+}
+
+.au-lembre {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #6B7280;
+  cursor: pointer;
+  user-select: none;
+}
+.au-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: var(--au-green);
+  color: #fff;
+  transition: transform var(--au-t), background var(--au-t);
+}
+.au-check--off { background: transparent; border: 2px solid var(--au-line); }
+.au-lembre:hover .au-check { transform: scale(1.08); }
+
+.au-esqueceu {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--au-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  background: none;
+  cursor: pointer;
+  transition: color var(--au-t);
+}
+.au-esqueceu:hover { color: var(--au-green-strong); }
+
+/* ---- botões ---- */
+.au-botao {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  margin: 8px auto 0;
+  padding: 16px;
+  border: none;
+  border-radius: 100px;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--au-t), box-shadow var(--au-t), background var(--au-t);
+  animation: au-sobe .5s var(--au-t) .4s both;
+}
+
+.au-botao--solido {
+  background: var(--au-green);
+  color: #fff;
+  box-shadow: 0 10px 24px -8px rgba(34,197,94,.55);
+}
+.au-botao--solido:hover {
+  background: var(--au-green-strong);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -10px rgba(34,197,94,.7);
+}
+.au-botao--solido:active { transform: translateY(-1px) scale(.99); }
+
+/* varredura de luz */
+.au-botao--solido::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-130%);
+  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.4) 50%, transparent 65%);
+}
+.au-botao--solido:hover::after { animation: au-sweep .8s var(--au-t); }
+
+.au-botao--contorno {
+  background: transparent;
+  color: var(--au-green-strong);
+  border: 2px solid var(--au-green);
+  box-shadow: none;
+}
+.au-botao--contorno:hover {
+  background: var(--au-green);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -12px rgba(34,197,94,.6);
+}
+
+/* ---- rodapé (login) ---- */
+.au-rodape {
+  margin-top: 44px;
+  text-align: center;
+  animation: au-sobe .5s var(--au-t) .48s both;
+}
+.au-rodape__pergunta { font-size: 15px; color: var(--au-label); margin-bottom: 16px; }
+
+/* ---- animações ---- */
+@keyframes au-sobe { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes au-pop  { from { opacity: 0; transform: scale(.82); } to { opacity: 1; transform: none; } }
+@keyframes au-sweep { from { transform: translateX(-130%); } to { transform: translateX(130%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .au-tela *, .au-tela *::before, .au-tela *::after { animation: none !important; transition: none !important; }
+}
+
+/* ---- responsivo: esconde as laterais no mobile ---- */
+@media (max-width: 900px) {
+  .au-tela { grid-template-columns: 1fr; }
+  .au-lado { display: none; }
+  .au-painel { padding: 48px 28px; }
+}
+
+/* libera a largura fixa do #root só nestas telas */
+#root:has(.au-tela) {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  text-align: left;
+  border-inline: none;
+}

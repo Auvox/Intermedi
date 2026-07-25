@@ -1,0 +1,40 @@
+.im-chamado__tipos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.im-chamado__tipo {
+  padding: 16px;
+  border: 2px solid var(--im-line);
+  border-radius: var(--im-r-lg);
+  background: var(--im-white);
+  text-align: left;
+  color: var(--im-slate);
+  transition: transform .22s var(--im-ease), border-color .25s ease, background .25s ease;
+}
+.im-chamado__tipo:hover { transform: translateY(-2px); }
+
+.im-chamado__tipo--falta { border-color: var(--im-red); background: var(--im-face-falta); color: var(--im-red); }
+.im-chamado__tipo--sobra { border-color: var(--im-green); background: var(--im-face-sobra); color: var(--im-green); }
+
+.im-chamado__tipo-nome {
+  display: block;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--im-ink);
+}
+.im-chamado__tipo-descricao { display: block; font-size: 12px; color: var(--im-slate); }
+
+.im-chamado__confirmacao {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border-radius: var(--im-r-lg);
+  background: var(--im-green-soft);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--im-green-dark);
+}
+.im-chamado__confirmacao svg { color: var(--im-green); flex-shrink: 0; }
+
+.im-chamado__resultados { display: grid; gap: 16px; }

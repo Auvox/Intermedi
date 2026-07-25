@@ -1,0 +1,118 @@
+.im-farmacia__resultado {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.im-farmacia__faturamento,
+.im-farmacia__composicao,
+.im-farmacia__movimentacao,
+.im-farmacia__saude { padding: 24px; }
+
+.im-farmacia__topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.im-farmacia__valor { margin-top: 8px; font-size: 36px; font-weight: 700; color: var(--im-ink); }
+.im-farmacia__unidade { font-size: 20px; color: var(--im-slate); }
+
+.im-farmacia__variacao {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--im-green);
+}
+
+.im-farmacia__subtitulo {
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--im-ink);
+}
+
+.im-farmacia__grafico { height: 246px; margin-top: 24px; }
+.im-farmacia__grafico--alto { height: 252px; margin-top: 20px; }
+
+.im-farmacia__series { display: flex; align-items: center; gap: 16px; }
+.im-farmacia__series span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--im-slate);
+}
+.im-farmacia__series i { width: 8px; height: 8px; border-radius: 999px; }
+
+/* ---- rosca de composição ---- */
+.im-farmacia__rosca { position: relative; height: 166px; margin-top: 12px; }
+
+.im-farmacia__rosca-centro {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.im-farmacia__rosca-valor { font-size: 24px; font-weight: 700; color: var(--im-ink); }
+.im-farmacia__rosca-legenda { font-size: 12px; color: var(--im-slate); }
+
+.im-farmacia__legenda { margin-top: 16px; display: grid; gap: 8px; }
+.im-farmacia__legenda li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--im-slate);
+}
+.im-farmacia__legenda strong { font-weight: 700; color: var(--im-ink); }
+.im-farmacia__ponto { width: 10px; height: 10px; border-radius: 999px; }
+
+/* ---- seção 2 ---- */
+.im-farmacia__estoque {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 24px;
+}
+
+.im-farmacia__coluna { display: grid; gap: 24px; align-content: start; }
+
+.im-farmacia__saude ul { margin-top: 16px; display: grid; gap: 16px; }
+.im-farmacia__saude-linha { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.im-farmacia__saude-rotulo { font-size: 14px; font-weight: 700; color: var(--im-ink); }
+.im-farmacia__saude-valor { font-size: 14px; font-weight: 700; color: var(--im-green); }
+.im-farmacia__saude-valor--alerta { color: var(--im-red); }
+.im-farmacia__saude-detalhe { margin-top: 4px; font-size: 12px; color: var(--im-slate); }
+
+/* ---- curva A ---- */
+.im-farmacia__curva { overflow: hidden; }
+.im-farmacia__curva-topo { padding: 20px 24px; }
+
+.im-farmacia__curva-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 24px;
+  border-top: 1px solid var(--im-line);
+}
+
+.im-farmacia__posicao { width: 16px; font-size: 14px; font-weight: 700; color: var(--im-slate); }
+.im-farmacia__curva-nome { margin-bottom: 6px; font-size: 14px; font-weight: 700; color: var(--im-ink); }
+.im-farmacia__curva-numeros { text-align: right; }
+.im-farmacia__curva-unidades { font-size: 14px; font-weight: 700; color: var(--im-ink); }
+.im-farmacia__curva-tendencia { font-size: 12px; font-weight: 700; color: var(--im-green); }
+.im-farmacia__curva-tendencia--queda { color: var(--im-red); }
+
+@media (max-width: 1180px) {
+  .im-farmacia__resultado,
+  .im-farmacia__estoque { grid-template-columns: 1fr; }
+}

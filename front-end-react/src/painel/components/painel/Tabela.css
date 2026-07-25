@@ -1,0 +1,100 @@
+/* Estilo compartilhado pelas tabelas do painel. */
+
+.im-tabela__rolagem { overflow-x: auto; }
+
+.im-tabela thead tr {
+  background: var(--im-surface-2);
+  border-bottom: 1px solid var(--im-line);
+}
+
+.im-tabela th {
+  padding: 14px 24px;
+  text-align: left;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--im-slate);
+}
+
+.im-tabela tbody tr { border-bottom: 1px solid var(--im-line); }
+
+.im-tabela td {
+  position: relative;
+  padding: 16px 24px;
+  font-size: 14px;
+  color: var(--im-ink);
+  transition: background .25s ease;
+}
+
+.im-tabela tbody tr:hover td { background: var(--im-surface-2); }
+
+/* trilho verde que acende na borda esquerda da linha */
+.im-tabela tbody td:first-child::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 0;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--im-green);
+  transform: scaleY(0);
+  transition: transform .32s var(--im-ease);
+}
+.im-tabela tbody tr:hover td:first-child::before { transform: scaleY(1); }
+
+.im-tabela__forte { font-size: 14px; font-weight: 700; color: var(--im-ink); }
+.im-tabela__fraco { font-size: 12px; color: var(--im-slate); }
+.im-tabela td.im-tabela__fraco { font-size: 14px; }
+.im-tabela__direita { text-align: right; }
+
+.im-tabela__urgencia {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.im-tabela__bolinha { width: 8px; height: 8px; border-radius: 999px; }
+
+/* barra de ferramentas acima das tabelas */
+.im-ferramentas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px;
+}
+.im-ferramentas__espaco { flex: 1; }
+
+.im-paginacao {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 24px;
+}
+.im-paginacao__contagem { font-size: 14px; color: var(--im-slate); }
+.im-paginacao__contagem strong { color: var(--im-ink); }
+.im-paginacao__paginas { display: flex; gap: 6px; }
+
+.im-paginacao__pagina {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--im-line);
+  border-radius: var(--im-r-sm);
+  background: var(--im-white);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--im-slate);
+  transition: transform .22s var(--im-ease), border-color .25s ease;
+}
+.im-paginacao__pagina:hover { transform: translateY(-1px); border-color: #C7E3D3; }
+.im-paginacao__pagina--ativa,
+.im-paginacao__pagina--ativa:hover {
+  background: var(--im-green);
+  border-color: var(--im-green);
+  color: var(--im-white);
+}

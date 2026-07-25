@@ -1,0 +1,78 @@
+.im-botao {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--im-r-md);
+  font-size: 14px;
+  font-weight: 700;
+  transition:
+    transform .22s var(--im-ease),
+    box-shadow .3s ease,
+    background .25s ease,
+    border-color .25s ease,
+    color .25s ease,
+    filter .3s ease;
+}
+
+.im-botao__conteudo {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.im-botao:active { transform: translateY(0) scale(.98); }
+
+/* ---- primário: gradiente da marca com varredura de luz ---- */
+.im-botao--primario {
+  padding: 10px 20px;
+  color: var(--im-white);
+  background: linear-gradient(135deg, var(--im-green-bright) 0%, var(--im-green) 55%, #04994A 100%);
+  box-shadow: var(--im-shadow-btn);
+}
+.im-botao--primario:hover { transform: translateY(-2px); filter: saturate(1.08); }
+.im-botao--primario::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transform: translateX(-130%);
+  background: linear-gradient(105deg, transparent 34%, rgba(255,255,255,.42) 50%, transparent 66%);
+}
+.im-botao--primario:hover::after { animation: im-sweep .78s var(--im-ease); }
+
+/* ---- neutro ---- */
+.im-botao--neutro {
+  padding: 10px 16px;
+  color: var(--im-ink);
+  background: var(--im-white);
+  border: 1px solid var(--im-line);
+}
+.im-botao--neutro:hover {
+  transform: translateY(-1px);
+  background: #F2F8F4;
+  border-color: #C7E3D3;
+}
+
+/* ---- sutil: ação secundária dentro de listas ---- */
+.im-botao--sutil {
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--im-green-dark);
+  background: var(--im-green-soft);
+  border: 1px solid var(--im-green-soft);
+}
+.im-botao--sutil:hover { transform: translateY(-1px); border-color: #BCE6CD; }
+
+/* ---- ícone ---- */
+.im-botao--icone {
+  padding: 8px;
+  background: var(--im-white);
+  border: 1px solid var(--im-line);
+  color: var(--im-slate);
+}
+.im-botao--icone:hover { transform: translateY(-1px); background: #F2F8F4; border-color: #C7E3D3; }
+
+.im-botao--bloco { width: 100%; }
