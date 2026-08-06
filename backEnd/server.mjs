@@ -1,9 +1,8 @@
 import { createServer } from "node:http";
 
 const server = createServer((request, response) => {
-    // response.setHeader("Content-Type", "application/json");
     response.statusCode = 200;
-    response.end({nome: "Fabas"});
+    response.end({nome: "Fabas"})
 
 });
 
