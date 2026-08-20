@@ -11,8 +11,24 @@ router.get("/", (req, res) => {
 // CRUD FARMACIA
 
 // CADASTRA FARMACIA
-router.post("/cadastrarFarmacia", (req, res) => {
-  res.end("Cadastrar farmacia");
+router.post("/cadastrarFarmacia", async (req, res) => {
+  const chunks = [];
+
+  for await (const chunk of req) {
+    chunks.push(chunk);
+  }
+
+  const body = Buffer.concat(chunks).toString("utf-8");
+  try {
+    const dataFarmacia = JSON.parse(body);
+    console.log("Nova Farmacia Recebida", dataFarmacia);
+
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify({ status: "Sucesso", recebido: dataFarmacia }));
+  } catch (error) {
+    res.statusCode = 400;
+    res.end(JSON.stringify({ error: "Playod JSON inválido" }));
+  }
 });
 
 // CONSULTA FARMACIAS
@@ -33,6 +49,16 @@ router.delete("/deletarFarmacia", (req, res) => {
 // -----------------------------------------------
 
 const server = createServer(async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*"); 
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE")
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  if (req.method === 'OPTIONS') {
+    res.writeHead(204);
+    res.end();
+    return;
+  }
+
   const url = new URL(req.url, "http://localhost");
 
   const handle = router.find(req.method, url.pathname);
