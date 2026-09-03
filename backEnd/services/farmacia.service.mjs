@@ -27,3 +27,4 @@ export function cadastrar(data) {
 export function consultar() {
   return
 }
+// stak
