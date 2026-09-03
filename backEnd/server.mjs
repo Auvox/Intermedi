@@ -2,10 +2,12 @@ import { createServer } from "node:http";
 import { Router } from "./router.mjs";
 
 import remedioRoutes from './routes/remedio.routes.mjs'
+import farmaciaRoutes from "./routes/farmacia.routes.mjs";
 
 const router = new Router();
 
 remedioRoutes(router)
+farmaciaRoutes(router)
 
 const server = createServer(async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
