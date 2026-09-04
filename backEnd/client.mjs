@@ -1,13 +1,8 @@
-const response = await fetch("http://localhost:3000/cadastrarFarmacia", {
-  method: "POST",
+const response = await fetch("http://localhost:3000/deletarRemedio/2", {
+  method: "DELETE",
   headers: {
     "Content-Type": "application/json",
-  }, 
-  body: JSON.stringify({
-    nomeFarmacia: 'Sla',
-    cnesFarmacia: '123456',
-    telFarmacia: '123456'
-  })
+  },
 });
 
 const json = await response.json();
