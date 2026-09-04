@@ -3,18 +3,19 @@ import db from "../database/database.mjs";
 // cadastrar
 export function cadastrar(data) {
   const { nomeRemedio, descRemedio, dosagemRemedio, fabricanteRemedio } = data;
-  const stmt = db.prepare(/*sql*/ `
+  
+  const stmt = db.prepare( `
     INSERT OR IGNORE INTO "tbCadastroRemedio" 
         ("nomeRemedio", "descRemedio", "dosagemRemedio", "fabricanteRemedio")
     VALUES 
         (?, ?, ?, ?)
-    `);
+  `);
 
   const result = stmt.run(
-    nomeRemedio,
-    descRemedio,
-    dosagemRemedio,
-    fabricanteRemedio,
+    nomeRemedio || null,
+    descRemedio || null,
+    dosagemRemedio || null,
+    fabricanteRemedio || null,
   );
 
   return {
@@ -22,30 +23,29 @@ export function cadastrar(data) {
   };
 }
 
-//listar
+// listar
 export function listar() {
   const stmt = db.prepare(/*sql*/ `
     SELECT * FROM "tbCadastroRemedio"
-    `);
+  `);
 
   return stmt.all();
 }
 
-//busca individual
+// busca individual
 export function buscarPorId(id) {
   const stmt = db.prepare(/*sql*/ `
     SELECT *
-        FROM tbCadastroRemedio
+      FROM tbCadastroRemedio
     WHERE 
-        idRemedio = ?
-    `);
+      idRemedio = ?
+  `);
 
-    return stmt.get(id)
+  return stmt.get(id);
 }
 
-//editar update
+// editar update
 export function editar(id, data) {
-
   const stmt = db.prepare(`
     UPDATE tbCadastroRemedio
     SET
@@ -57,17 +57,16 @@ export function editar(id, data) {
   `);
 
   return stmt.run(
-    data.nomeRemedio,
-    data.descRemedio,
-    data.dosagemRemedio,
-    data.fabricanteRemedio,
+    data.nomeRemedio || null,
+    data.descRemedio || null,
+    data.dosagemRemedio || null,
+    data.fabricanteRemedio || null,
     id
   );
 }
 
-//deletar
+// deletar
 export function deletar(id) {
-
   const stmt = db.prepare(`
     DELETE FROM tbCadastroRemedio
     WHERE idRemedio = ?

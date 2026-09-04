@@ -60,7 +60,7 @@ export function useForm(type: string) {
   const [erro, setErro] = React.useState(null);
 
   function validate(value: string) {
-    if (type === false) return true;
+    if (type == false) return true;
     if (value.length === 0) {
       setErro("Preenha um valor");
       return false;
