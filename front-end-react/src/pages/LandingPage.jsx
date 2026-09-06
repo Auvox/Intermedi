@@ -13,6 +13,13 @@ import MapSection from "../components/sections/MapSection.jsx";
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState(() => window.location.hash || "#inicio");
+
+  useEffect(() => {
+    const onHashChange = () => setActiveSection(window.location.hash || "#inicio");
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -24,10 +31,10 @@ export default function LandingPage() {
     <div className="lp-root">
 
       {/* ══════════ NAV ══════════ */}
-      <Nav scrolled={scrolled} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <Nav scrolled={scrolled} menuOpen={menuOpen} setMenuOpen={setMenuOpen} activeSection={activeSection} />
 
       {/* ══════════ MOBILE MENU ══════════ */}
-      <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} activeSection={activeSection} />
 
       {/* ══════════ HERO ══════════ */}
       <HeroSection />
