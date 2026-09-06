@@ -1,0 +1,41 @@
+.im-campo { display: block; }
+
+.im-campo__rotulo {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--im-slate);
+}
+
+.im-campo__caixa {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--im-line);
+  border-radius: var(--im-r-md);
+  background: var(--im-white);
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.im-campo__caixa:focus-within {
+  border-color: var(--im-green);
+  box-shadow: 0 0 0 4px rgba(0,177,79,.12);
+}
+
+.im-campo__icone { color: var(--im-slate); flex-shrink: 0; }
+
+.im-campo__entrada {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--im-ink);
+  resize: none;
+}
+
+.im-campo__entrada--forte { font-weight: 700; }
+
+.im-busca { padding: 9px 12px; width: auto; }
+.im-busca .im-campo__entrada { font-size: 14px; }

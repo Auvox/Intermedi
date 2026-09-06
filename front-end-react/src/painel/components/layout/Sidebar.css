@@ -1,0 +1,100 @@
+.im-sidebar {
+  position: fixed;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  width: var(--im-sidebar-w);
+  min-width: var(--im-sidebar-w);
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: transform .3s var(--im-ease);
+  background: var(--im-white);
+  border-right: 1px solid var(--im-line);
+}
+
+.im-sidebar--aberta { transform: none; }
+
+.im-sidebar__cortina {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: rgba(5,61,42,.45);
+  backdrop-filter: blur(3px);
+}
+
+.im-sidebar__topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 24px 24px;
+}
+
+.im-sidebar__logo { height: 30px; width: auto; object-fit: contain; }
+
+.im-sidebar .im-sidebar__fechar { color: var(--im-slate); }
+
+.im-sidebar__nav { flex: 1; overflow-y: auto; padding: 0 16px 16px; }
+
+.im-sidebar__grupo { margin-bottom: 24px; }
+
+.im-sidebar__titulo {
+  margin-bottom: 8px;
+  padding: 0 12px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--im-slate);
+}
+
+.im-sidebar .im-sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+  padding: 10px 12px;
+  border-radius: var(--im-r-md);
+  color: var(--im-slate);
+  transition: background .25s ease, color .25s ease, padding-left .28s var(--im-ease);
+}
+
+.im-sidebar .im-sidebar__item:hover {
+  padding-left: 18px;
+  background: var(--im-fill);
+  color: var(--im-ink);
+}
+
+.im-sidebar .im-sidebar__item--ativo,
+.im-sidebar .im-sidebar__item--ativo:hover {
+  padding-left: 12px;
+  background: var(--im-green-soft);
+  color: var(--im-green-dark);
+}
+
+.im-sidebar__rotulo { flex: 1; font-size: 14px; font-weight: 700; }
+
+.im-sidebar__selo {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--im-fill);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--im-slate);
+}
+
+.im-sidebar__item--ativo .im-sidebar__selo {
+  background: var(--im-white);
+  color: var(--im-green-dark);
+}
+
+.im-sidebar__selo--destaque,
+.im-sidebar__item--ativo .im-sidebar__selo--destaque {
+  background: var(--im-green-bright);
+  color: #04321F;
+}
+
+@media (min-width: 1024px) {
+  .im-sidebar { position: sticky; top: 0; transform: none; }
+  .im-sidebar__fechar,
+  .im-sidebar__cortina { display: none; }
+}

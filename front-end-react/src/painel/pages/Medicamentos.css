@@ -1,0 +1,18 @@
+.im-medicamento { display: flex; align-items: center; gap: 12px; }
+
+.im-medicamento__icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--im-r-sm);
+  background: var(--im-green-soft);
+  color: var(--im-green);
+}
+
+.im-medicamento__critico { color: var(--im-red); }
+
+.im-medicamento__acoes { display: flex; gap: 6px; }
+.im-medicamento__excluir { color: var(--im-red); }

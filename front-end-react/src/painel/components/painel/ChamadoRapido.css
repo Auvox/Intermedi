@@ -1,0 +1,90 @@
+.im-rapido { overflow: hidden; }
+
+.im-rapido__cabecalho { padding: 24px 24px 0; }
+
+.im-rapido__marcador {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--im-green);
+}
+
+.im-rapido__titulo {
+  margin-top: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+  color: var(--im-ink);
+}
+
+.im-rapido__corpo { padding: 20px 24px 0; }
+
+.im-rapido__tipos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 4px;
+  border-radius: var(--im-r-lg);
+  background: var(--im-fill);
+}
+
+.im-rapido__tipo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: var(--im-r-md);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--im-slate);
+  transition: background .25s ease, color .25s ease, box-shadow .25s ease;
+}
+
+.im-rapido__tipo--ativo { background: var(--im-white); box-shadow: var(--im-shadow-tab); }
+.im-rapido__tipo--falta { color: var(--im-red); }
+.im-rapido__tipo--sobra { color: var(--im-green); }
+
+.im-rapido__campo { margin-top: 16px; }
+
+.im-rapido__dupla {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.im-rapido__urgencias { display: flex; gap: 6px; }
+
+.im-rapido__urgencia {
+  flex: 1;
+  padding: 12px 4px;
+  border: 1px solid var(--im-line);
+  border-radius: var(--im-r-md);
+  background: var(--im-white);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--im-slate);
+  transition: transform .22s var(--im-ease), background .25s ease, border-color .25s ease, color .25s ease;
+}
+.im-rapido__urgencia:hover { transform: translateY(-1px); }
+
+.im-rapido__rodape {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--im-line);
+  background: var(--im-surface-2);
+}
+
+.im-rapido__dica { font-size: 12px; font-weight: 500; color: var(--im-slate); }
+.im-rapido__dica strong { color: var(--im-green); }
+
+@media (max-width: 520px) {
+  .im-rapido__dupla { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,39 @@
+.im-kpi { padding: 20px; }
+
+.im-kpi__topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.im-kpi__icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--im-r-md);
+  background: var(--im-green-soft);
+  color: var(--im-green);
+  transition:
+    background .38s var(--im-ease),
+    color .38s ease,
+    transform .45s var(--im-ease);
+}
+
+.im-kpi:hover .im-kpi__icone {
+  background: var(--im-green);
+  color: var(--im-white);
+  transform: translateY(-3px) rotate(-8deg);
+}
+
+.im-kpi__valor {
+  margin-top: 16px;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--im-ink);
+}
+
+.im-kpi__sufixo { font-size: 18px; color: var(--im-slate); }
+
+.im-kpi__rotulo { margin-top: 2px; font-size: 14px; font-weight: 500; color: var(--im-slate); }

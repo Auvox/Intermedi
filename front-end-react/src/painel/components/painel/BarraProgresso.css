@@ -1,0 +1,14 @@
+.im-barra {
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--im-track);
+}
+
+.im-barra__preenchimento {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--im-green);
+  transition: width 1.1s var(--im-ease);
+}
+
+.im-barra__preenchimento--alerta { background: var(--im-red); }

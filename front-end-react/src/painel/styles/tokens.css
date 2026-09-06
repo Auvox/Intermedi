@@ -1,0 +1,61 @@
+/* ============================================================
+   Intermedi — tokens de design
+   Único lugar onde cor, tipo, raio, sombra e ritmo são definidos.
+   Todo o restante do painel consome estas variáveis.
+   ============================================================ */
+
+:root {
+  /* marca */
+  --im-green:        #00B14F;
+  --im-green-bright: #22C55E;
+  --im-green-dark:   #04803A;
+  --im-green-soft:   #E9F8EF;
+  --im-green-mid:    #0A5C3C;
+  --im-green-deep:   #053D2A;
+  --im-green-night:  #032418;
+
+  /* neutros */
+  --im-ink:       #0B1220;
+  --im-slate:     #67757F;
+  --im-line:      #E6EDE8;
+  --im-bg:        #F4F8F5;
+  --im-white:     #FFFFFF;
+  --im-surface-2: #FAFCFB;
+  --im-fill:      #F1F5F2;
+  --im-track:     #EDF3EF;
+
+  /* estado */
+  --im-amber: #F59E0B;
+  --im-red:   #EF4444;
+  --im-blue:  #3B82F6;
+
+  /* faces do card de match */
+  --im-face-falta: #FFF8F8;
+  --im-face-sobra: #F5FCF8;
+
+  /* tipografia */
+  --im-font: 'Poppins', 'Montserrat', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --im-tracking-tight: -0.03em;
+  --im-tracking-label:  0.14em;
+
+  /* raios */
+  --im-r-sm: 10px;
+  --im-r-md: 14px;
+  --im-r-lg: 20px;
+  --im-r-xl: 24px;
+
+  /* sombras */
+  --im-shadow-card:       0 1px 2px rgba(6,40,26,.04), 0 12px 32px -20px rgba(6,40,26,.18);
+  --im-shadow-card-hover: 0 1px 2px rgba(6,40,26,.04), 0 28px 46px -26px rgba(6,40,26,.38);
+  --im-shadow-btn:        0 12px 24px -12px rgba(0,177,79,.9);
+  --im-shadow-pop:        0 20px 38px -16px rgba(6,40,26,.34);
+  --im-shadow-modal:      0 44px 84px -32px rgba(0,0,0,.55);
+  --im-shadow-tab:        0 3px 10px rgba(6,40,26,.12);
+
+  /* movimento */
+  --im-ease: cubic-bezier(.2,.8,.2,1);
+
+  /* medidas do layout */
+  --im-sidebar-w: 268px;
+  --im-wrap:      1400px;
+}
