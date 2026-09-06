@@ -233,7 +233,10 @@ export default function MapSection() {
         {/* Header da Seção integrado ao estilo do Hero */}
         <div className="section-header reveal">
           <div className="map-badge">
-            <span className="map-badge-dot" />
+            <svg className="map-badge-signal" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="3" fill="currentColor" />
+              <path d="M7 7a7 7 0 0 0 0 10M17 7a7 7 0 0 1 0 10M4 4a11 11 0 0 0 0 16M20 4a11 11 0 0 1 0 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
             AO VIVO
           </div>
           <h2 className="map-section-title">
