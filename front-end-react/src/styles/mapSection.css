@@ -25,6 +25,39 @@
     gap: 16px;
   }
 
+  .map-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 15px;
+    border-radius: 10px;
+    background: #ef1528;
+    color: #fff;
+    font-family: var(--font, sans-serif);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(239, 21, 40, 0.18);
+  }
+
+  .map-badge-signal {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    animation: mapLiveBlink 1.8s ease-in-out infinite;
+  }
+
+  @keyframes mapLiveBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .map-badge-signal { animation: none; }
+  }
+
   /* Títulos da Seção (Seguindo a hierarquia visual do Hero) */
   .map-section-title {
     font-family: "Sora", sans-serif;
@@ -41,14 +74,14 @@
     font-size: 16px;
     color: var(--text-secondary);
     line-height: 1.6;
-    max-width: 540px;
+    max-width: 100%;
     margin-bottom: 48px;
   }
   
   /* Estrutura do Grid (Mapa + Lateral) */
   .map-wrapper {
     display: grid;
-    grid-template-columns: 1fr 340px;
+    grid-template-columns: minmax(0, 1fr) 340px;
     gap: 48px;
     align-items: start;
   }
@@ -88,6 +121,7 @@
   
   /* Sidebar de Estatísticas */
   .map-sidebar {
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -202,7 +236,7 @@
   /* ── Responsividade Adaptada ── */
   @media (max-width: 1024px) {
     .map-wrapper {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 32px;
     }
     .map-legend {
@@ -216,6 +250,9 @@
   }
   
   @media (max-width: 600px) {
+    .map-main-content, .map-feed { min-width: 0; }
+    .map-feed-item { overflow-wrap: anywhere; padding: 14px; gap: 10px; }
+    .map-feed-item > span { min-width: 0; }
     .mapsection {
       padding: 60px 0;
     }
