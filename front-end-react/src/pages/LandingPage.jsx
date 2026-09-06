@@ -4,6 +4,7 @@ import "../styles/LandingPage.css";
 import Nav from "../components/layout/Nav";
 import MobileMenu from "../components/layout/MobileMenu";
 import HeroSection from "../components/layout/HeroSection";
+import KeywordRibbon from "../components/layout/KeywordRibbon";
 import WhySection from "../components/layout/WhySection";
 import HowSection from "../components/layout/HowSection";
 import PartnersSection from "../components/layout/PartnersSection";
@@ -38,6 +39,7 @@ export default function LandingPage() {
 
       {/* ══════════ HERO ══════════ */}
       <HeroSection />
+      <KeywordRibbon />
 
       {/* ══════════ WHY ══════════ */}
       <WhySection />

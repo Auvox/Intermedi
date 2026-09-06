@@ -350,152 +350,6 @@ body { background: var(--white); color: var(--text); font-family: var(--font); o
   line-height: 1.6; max-width: 560px; margin: 0 auto;
 }
 
-/* ══════════ WHY ══════════ */
-.lp-why { background: #f9fafb; }
-.lp-why-cards {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
-}
-
-.lp-why-card {
-  background: #fff; border-radius: 16px; padding: 28px 24px;
-  display: flex; align-items: flex-start; gap: 16px;
-  border: 1px solid var(--border);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-.lp-why-card:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(0,0,0,0.08); }
-
-.lp-why-card-left { flex: 1; min-width: 0; text-align: left; }
-.lp-why-card-left h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
-.lp-why-card-left h3 strong { color: var(--text); font-weight: 700; }
-.lp-why-underline { width: 36px; height: 2px; background: var(--green); border-radius: 2px; margin-bottom: 12px; }
-.lp-why-card-left p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-
-.lp-why-icon {
-  flex-shrink: 0;
-  width: 48px; height: 48px; border-radius: 12px;
-  background: rgba(34,197,94,0.1);
-  display: flex; align-items: center; justify-content: center;
-}
-.lp-why-icon i { font-size: 24px; color: var(--green); }
-
-/* ══════════ HOW ══════════ */
-.lp-how { 
-  background: var(--white); 
-  padding: 100px 5%;
-}
-
-.lp-how-container {
-  max-width: 900px; /* Um pouco mais largo para dar respiro aos textos */
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.lp-how-track {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(135deg, var(--green), #1cb854);
-  border-radius: 100px;
-  padding: 24px 50px; /* Padding fixo nas extremidades */
-  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.15);
-}
-
-.lp-how-step { 
-  display: flex; 
-  align-items: center;
-  flex: 1;
-}
-.lp-how-step:last-child {
-  flex: none;
-}
-
-.lp-how-circle {
-  width: 56px; 
-  height: 56px; 
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15); 
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  display: flex;
-  align-items: center; 
-  justify-content: center;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  flex-shrink: 0; /* Impede a bolinha de achatar em telas menores */
-}
-.lp-how-circle i { 
-  font-size: 24px; 
-  color: #fff; 
-}
-
-.lp-how-circle:hover { 
-  background: #fff; 
-  border-color: #fff;
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-}
-.lp-how-circle:hover i {
-  color: var(--green);
-}
-
-/* Criando a linha com uma ponta de seta moderna em CSS puro */
-.lp-how-arrow {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin: 0 15px;
-}
-/* A linha horizontal branca e suave */
-.lp-how-arrow::before {
-  content: '';
-  width: 100%;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 2px;
-}
-/* A pontinha da seta em formato triangular elegante */
-.lp-how-arrow::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  width: 6px;
-  height: 6px;
-  border-top: 2px solid rgba(255, 255, 255, 0.5);
-  border-right: 2px solid rgba(255, 255, 255, 0.5);
-  transform: rotate(45deg);
-}
-
-/* LABELS: Sincronização milimétrica com o grid de cima */
-.lp-how-labels {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* Esse padding horizontal precisa ser EXATAMENTE a soma do padding da barra 
-     mais a metade do tamanho da bolinha para o texto ficar no centro perfeito */
-  padding: 0 54px; 
-}
-
-.lp-how-label {
-  /* Força cada label a ter uma largura mínima idêntica à bolinha, 
-     garantindo que o centro do texto seja o centro do círculo */
-  width: 56px; 
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-.lp-how-label span {
-  font-size: 16px; 
-  font-weight: 700; 
-  color: #155e2c;
-  letter-spacing: -0.3px;
-  white-space: nowrap; /* Impede que palavras como "Como funciona" quebrem em duas linhas */
-}
-
 /* ══════════ PARTNERS ══════════ */
 .lp-partners { background: #f9fafb; }
 
@@ -538,53 +392,6 @@ body { background: var(--white); color: var(--text); font-family: var(--font); o
 }
 .lp-partner-list-card li i { font-size: 18px; color: var(--green); flex-shrink: 0; }
 
-/* ══════════ FOOTER ══════════ */
-.lp-footer {
-  background: #18533a; color: #fff; padding: 56px 5% 0;
-}
-.lp-footer-inner {
-  max-width: 1140px; margin: 0 auto;
-  display: grid; grid-template-columns: 1.4fr 1fr 1fr;
-  gap: 48px; padding-bottom: 40px;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-}
-
-.lp-footer-logo { height: 52px; width: auto; margin-bottom: 12px; }
-.lp-footer-brand p { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
-
-.lp-footer-socials { display: flex; gap: 12px; }
-.lp-footer-socials a {
-  width: 38px; height: 38px; border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,0.4);
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 18px; text-decoration: none;
-  transition: background 0.2s;
-}
-.lp-footer-socials a:hover { background: rgba(255,255,255,0.12); }
-
-.lp-footer-col h4 {
-  font-size: 15px; font-weight: 700; margin-bottom: 18px; color: #fff;
-}
-.lp-footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.lp-footer-col ul a {
-  color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px;
-  transition: color 0.2s;
-}
-.lp-footer-col ul a:hover { color: #fff; }
-
-.footer-contact-item {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 13px; color: rgba(255,255,255,0.7);
-  margin-bottom: 12px;
-}
-.footer-contact-item i { font-size: 17px; color: rgba(255,255,255,0.8); }
-
-.lp-footer-bottom {
-  max-width: 1140px; margin: 0 auto;
-  padding: 18px 0; font-size: 12px;
-  color: rgba(255,255,255,0.4); text-align: center;
-}
-
 /* ══════════ RESPONSIVE ══════════ */
 @media (max-width: 992px) {
   .lp-hero { min-height: auto; padding: 128px 5% 84px; }
@@ -598,10 +405,7 @@ body { background: var(--white); color: var(--text); font-family: var(--font); o
   .lp-nav-links, .lp-nav-actions { display: none; }
   .lp-hamburger { display: flex; flex-shrink: 0; width: 44px; height: 44px; align-items: center; justify-content: center; }
   .lp-mobile-menu { display: flex; }
-  .lp-why-cards { grid-template-columns: 1fr; }
   .lp-partners-grid, .lp-partners-lists { grid-template-columns: 1fr; }
-  .lp-footer-inner { grid-template-columns: 1fr 1fr; }
-  .lp-footer-brand { grid-column: 1 / -1; }
   .card-medicamento {display: none;}
   .card-conexao {display: none;}
 }
@@ -612,17 +416,6 @@ body { background: var(--white); color: var(--text); font-family: var(--font); o
   .lp-mobile-menu { display: flex; }
   .lp-section { padding: 56px 5%; }
   .lp-section-head { margin-bottom: 32px; }
-  .lp-how-track, .lp-how-labels { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 16px 8px; }
-  .lp-how-labels { padding-top: 0; padding-bottom: 0; align-items: start; }
-  .lp-how-step { justify-content: center; min-width: 0; position: relative; }
-  .lp-how-arrow { position: absolute; left: calc(50% + 26px); width: calc(100% - 52px); margin: 0; }
-  .lp-how-label { width: auto; min-width: 0; }
-  .lp-how-label span { font-size: clamp(10px, 2.7vw, 14px); white-space: normal; overflow-wrap: anywhere; }
-  .lp-how-circle { width: 44px; height: 44px; }
-  .lp-how-circle i { font-size: 20px; }
-  .lp-footer-inner { grid-template-columns: 1fr; gap: 32px; }
-  .lp-footer-col { min-width: 0; }
-  .footer-contact-item { overflow-wrap: anywhere; }
 }
 
 @media (max-width: 480px) {
