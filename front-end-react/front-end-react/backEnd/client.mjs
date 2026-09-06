@@ -1,7 +1,5 @@
-const idRemedio = 1;
-
-const response = await fetch(`/api/pacientes/loginPaciente`, {
-  method: "POST",
+const response = await fetch("http://localhost:3000/deletarRemedio/2", {
+  method: "DELETE",
   headers: {
     "Content-Type": "application/json",
   },
