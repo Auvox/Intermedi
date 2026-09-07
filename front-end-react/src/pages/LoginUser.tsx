@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logoIntermedi.png";
+import phoneMockup from "../assets/intermedi-phones.png";
 import "../styles/auth.css";
 
 type Role = "gerente" | "funcionario" | "admin";
@@ -26,16 +27,6 @@ function Icon({ name, className = "" }: { name: string; className?: string }) {
     pin: <><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z" /><circle cx="12" cy="10" r="2" /></>,
   };
   return <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>;
-}
-function PharmacyArtwork() {
-  return <div className="auth-art" aria-hidden="true">
-    <div className="auth-orbit orbit-one" /><div className="auth-orbit orbit-two" />
-    <span className="auth-spark spark-one">+</span><span className="auth-spark spark-two">+</span><div className="auth-art-floor" />
-    <div className="auth-shop"><div className="auth-shop-sign"><Icon name="plus" /><span>FARMÁCIA</span></div><div className="auth-awning">{Array.from({ length: 5 }, (_, i) => <i key={i} />)}</div><div className="auth-shop-body"><span className="auth-shop-window" /><span className="auth-shop-door" /></div></div>
-    <div className="auth-bottle"><div className="auth-bottle-cap" /><div className="auth-bottle-label"><Icon name="plus" /></div></div>
-    <div className="auth-phone"><span className="auth-phone-speaker" /><div className="auth-phone-top"><Icon name="plus" /><span>intermedi</span></div><div className="auth-phone-greeting">O cuidado começa<br /><strong>com uma conexão.</strong></div><div className="auth-phone-map"><span /><span /><Icon name="pin" /></div><div className="auth-phone-result"><span><Icon name="plus" /></span><div><b>Mais perto de você</b><small>Sua rede de farmácias</small></div><i /></div><div className="auth-phone-button">Encontrar medicamentos <Icon name="arrow" /></div><span className="auth-phone-bottom" /></div>
-    <div className="auth-floating-note"><span><Icon name="shield" /></span><div><b>Conexões que cuidam</b><small>Da sua equipe a quem precisa.</small></div></div><div className="auth-pill" /><div className="auth-art-dot" />
-  </div>;
 }
 export default function LoginUser({ initialMode = "login" }: { initialMode?: Mode }) {
   const [role, setRole] = useState<Role | null>(null);
@@ -88,7 +79,7 @@ export default function LoginUser({ initialMode = "login" }: { initialMode?: Mod
     </section>
     <aside className="auth-story" aria-label="Conectando farmácias e pessoas">
       <div className="auth-story-copy"><h2>Mais conexões.<br />Mais saúde.<br /><em>Todos os dias.</em></h2><p>A tecnologia aproxima. O cuidado transforma.<br />Sua farmácia e sua equipe, juntas em um só lugar.</p></div>
-      <div className="auth-art-stage"><PharmacyArtwork /></div>
+      <div className="auth-art-stage"><img className="auth-phone-mockup" src={phoneMockup} alt="Dois celulares com a marca Intermedi e a mensagem: Sua saúde, na palma da sua mão." width="1312" height="1199" /></div>
       <div className="auth-story-bottom"><span className="auth-story-badge"><Icon name="plus" /></span><p><strong>O cuidado vai mais longe quando nos conectamos.</strong><span>Uma nova forma de fazer parte da saúde.</span></p></div>
     </aside>
   </main>;
