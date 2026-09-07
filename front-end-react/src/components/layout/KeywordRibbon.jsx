@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../../styles/keywordRibbon.css";
 
 const keywords = [
@@ -11,10 +10,8 @@ const keywords = [
 ];
 
 export default function KeywordRibbon() {
-  const [paused, setPaused] = useState(false);
-
   return (
-    <div className={`keyword-ribbon${paused ? " is-paused" : ""}`} role="region" aria-label="A Intermedi conecta">
+    <div className="keyword-ribbon" role="region" aria-label="A Intermedi conecta">
       <div className="keyword-ribbon-window">
         <div className="keyword-ribbon-track">
           {[0, 1].map((copy) => (
@@ -31,11 +28,6 @@ export default function KeywordRibbon() {
           ))}
         </div>
       </div>
-      <button className="keyword-ribbon-toggle" type="button" onClick={() => setPaused((value) => !value)} aria-label={paused ? "Retomar animação da faixa" : "Pausar animação da faixa"}>
-        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-          {paused ? <path d="m7 4 9 6-9 6Z" /> : <path d="M5 4h3v12H5Zm7 0h3v12h-3Z" />}
-        </svg>
-      </button>
     </div>
   );
 }
